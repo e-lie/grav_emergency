@@ -299,7 +299,7 @@ Il en existe pour un peu toute les tâches raisonnablement courante : un slogan 
 
 ### Option et documentation des modules
 
-La documentation des modules Ansible se trouve à l'adresse [https://docs.ansible.com/ansible/latest/modules/<nom_module>.html](https://docs.ansible.com/ansible/latest/modules/<nom_module>.html)
+La documentation des modules Ansible se trouve à l'adresse [https://docs.ansible.com/ansible/latest/modules/wait_for_module.html](https://docs.ansible.com/ansible/latest/modules/wait_for_module.html)
 
 Chaque module propose de nombreux arguments pour personnaliser son comportement:
 
