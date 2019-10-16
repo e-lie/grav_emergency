@@ -1,5 +1,5 @@
 ---
-title: "TP1 - Mise en place d'Ansible et usage des commandes ad-hoc"
+title: 'TP1 - Mise en place d''Ansible et usage des commandes ad-hoc'
 visible: true
 ---
 
@@ -118,7 +118,7 @@ ssh <yourname>@<ip_conteneur>
 ```
 
 - Refaite rapidement la même opération avec un conteneur ubuntu:
-  - `lxc launch images:ubuntu/bionic/amd64 ubuntu1`
+  - `sudo lxc launch images:ubuntu/bionic/amd64 ubuntu1`
   - connectez dans le conteneur et lancez:
 
 ```bash
