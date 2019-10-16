@@ -1,0 +1,494 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdfborder={0 0 0},
+  breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\hypertarget{prenom-______________________}{%
+\subsubsection{Prenom :
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}\label{prenom-______________________}}
+
+\hypertarget{nom-______________________}{%
+\subsubsection{Nom :
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}\label{nom-______________________}}
+
+\hypertarget{initiation-uxe0-python-questionnaire}{%
+\section{Initiation à Python :
+questionnaire}\label{initiation-uxe0-python-questionnaire}}
+
+\hypertarget{question-1}{%
+\subsubsection{Question 1}\label{question-1}}
+
+Un programme contient cette instruction :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{age }\OperatorTok{=} \BuiltInTok{input}\NormalTok{(}\StringTok{"Quel est ton âge ?"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Pendant une execution du programme, un utilisateur répond 28 à la
+question. Que contient la variable \texttt{age} ?
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{28}
+\item
+  B. \texttt{"28"}
+\item
+  C. \texttt{None}
+\end{itemize}
+
+\hypertarget{question-2}{%
+\subsubsection{Question 2}\label{question-2}}
+
+Pour concaténer un entier \texttt{n} à une chaîne de caractère, j'écris
+:
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{"une\ chaîne"\ +\ str(n)}
+\item
+  B. \texttt{"une\ chaîne"\ +\ int(n)}
+\item
+  C. \texttt{"une\ chaîne"\ +\ "n"}
+\end{itemize}
+
+\hypertarget{question-3}{%
+\subsubsection{Question 3}\label{question-3}}
+
+Pour vérifier qu'une variable \texttt{n} est un entier, j'utilise :
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{isinstance(n,\ int)}
+\item
+  B. \texttt{n\ ==\ "int"}
+\item
+  C. \texttt{int(n)\ ==\ True}
+\end{itemize}
+
+\hypertarget{question-4}{%
+\subsubsection{Question 4}\label{question-4}}
+
+À la fin de l'éxecution de ce programme, que contiendra la variable
+\texttt{x} ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ dire_bonjour():}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Bonjour !"}\NormalTok{)}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ dire_bonjour()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{"Bonjour\ !"}
+\item
+  B. \texttt{""}
+\item
+  C. \texttt{None}
+\end{itemize}
+
+\hypertarget{question-5}{%
+\subsubsection{Question 5}\label{question-5}}
+
+Dans le programme de la question précédente, pour que la fonction
+\texttt{dire\_bonjour()} renvoie \texttt{"Bonjour\ !"}, j'aurais dû
+remplacer la deuxième ligne par :
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{return\ "Bonjour\ !"}
+\item
+  B. \texttt{return\ print("Bonjour\ !")}
+\item
+  C. Rien du tout, c'était déjà bon !
+\end{itemize}
+
+\hypertarget{question-6}{%
+\subsubsection{Question 6}\label{question-6}}
+
+Pour savoir si une variable \texttt{n} contient l'entier 20, j'écris :
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{n\ =\ 20}
+\item
+  B. \texttt{n\ =\ "20"}
+\item
+  C. \texttt{n\ ==\ 20}
+\item
+  D. \texttt{n\ ==\ "20"}
+\end{itemize}
+
+\hypertarget{question-7}{%
+\subsubsection{Question 7}\label{question-7}}
+
+Qu'affiche le programme suivant ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{):}
+    \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{continue}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"La variable i vaut "} \OperatorTok{+} \BuiltInTok{str}\NormalTok{(i))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  A. Un message pour chaque entier impair entre 0 et 9 compris
+\item
+  B. Rien du tout
+\item
+  C. Il y a une erreur de syntaxe
+\end{itemize}
+
+\hypertarget{question-8}{%
+\subsubsection{Question 8}\label{question-8}}
+
+Qu'affiche le programme suivant ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{):}
+    \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+    \ControlFlowTok{continue}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"La variable i vaut "} \OperatorTok{+} \BuiltInTok{str}\NormalTok{(i))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  A. Un message pour chaque entier impair entre 0 et 9 compris
+\item
+  B. Rien du tout
+\item
+  C. Il y a une erreur de syntaxe
+\end{itemize}
+
+\hypertarget{question-9}{%
+\subsubsection{Question 9}\label{question-9}}
+
+Une liste a été créée de cette manière :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ma_liste }\OperatorTok{=}\NormalTok{ [ }\StringTok{"Le"}\NormalTok{, }\StringTok{"Python"}\NormalTok{, }\StringTok{"c'est"}\NormalTok{, }\StringTok{"cool"}\NormalTok{, }\StringTok{"!"}\NormalTok{ ]}
+\end{Highlighting}
+\end{Shaded}
+
+Laquelle de ces instructions renvoie \texttt{"Python"} ?
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{ma\_liste{[}1{]}}
+\item
+  B. \texttt{ma\_liste{[}2{]}}
+\item
+  C. \texttt{ma\_liste{[}3{]}}
+\end{itemize}
+
+\hypertarget{question-10}{%
+\subsubsection{Question 10}\label{question-10}}
+
+Pour découper une chaine de caractère \texttt{s} par rapport aux
+\texttt{;} qu'elle contient et obtenir ainsi une liste, j'utilise :
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{s.strip(\textquotesingle{};\textquotesingle{})}
+\item
+  B. \texttt{s.join(\textquotesingle{};\textquotesingle{})}
+\item
+  C. \texttt{s.split(\textquotesingle{};\textquotesingle{})}
+\end{itemize}
+
+\hypertarget{question-11}{%
+\subsubsection{Question 11}\label{question-11}}
+
+Pour importer la librairie permettant de manipuler du json, j'écris au
+début de mon programme :
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{include\ json}
+\item
+  B. \texttt{import\ json}
+\item
+  C. \texttt{require\ json}
+\end{itemize}
+
+\hypertarget{question-12}{%
+\subsubsection{Question 12}\label{question-12}}
+
+Ecrire une fonction \texttt{pairs} qui prend en argument une liste
+d'entier et renvoie la liste entiers pairs qu'elle contient. Par
+exemple, \texttt{pairs({[}3,\ 6,\ 9,\ 5,\ 2{]})} renverra
+\texttt{{[}6,\ 2{]}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-13}{%
+\subsubsection{Question 13}\label{question-13}}
+
+Des méthodes dont les noms son entourés de deux underscores
+(\textbf{name}) sont:
+
+\begin{itemize}
+\tightlist
+\item
+  A. des méthodes spéciales qui permettent notamment d'implémenter les
+  opérations de base du langage python pour ses propres classes.
+\item
+  B. des attributs magiques qui sont utiles pour convertir des
+  propriétés en objets et objets dérivés.
+\item
+  C. les méthodes de la bibliothèque standard de python et téléchargées
+  depuis pypi.org.
+\end{itemize}
+
+\hypertarget{question-14}{%
+\subsubsection{Question 14}\label{question-14}}
+
+Compléter ce programme pour afficher dans la console le type de
+Salameche à partir du contenu de \texttt{d} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d }\OperatorTok{=}\NormalTok{ [ }\StringTok{"pikachu"}\NormalTok{, }\StringTok{"salameche"}\NormalTok{ ]}
+
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-15}{%
+\subsubsection{Question 15}\label{question-15}}
+
+Écrire la première ligne (\texttt{for\ ...}) qui permet d'itérer sur les
+valeurs d'une liste \texttt{l}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-16}{%
+\subsubsection{Question 16}\label{question-16}}
+
+On veut ecrire un programme qui, étant donné une chaîne de caractère
+\texttt{stuff}, essaye de la convertir en entier avec
+\texttt{mon\_entier\ =\ int(stuff)}. Pour savoir si la conversion a
+échoué et stocker \texttt{-1} dans \texttt{mon\_entier} à la place,
+j'utilise de préférence:
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{if} et \texttt{else}
+\item
+  B. \texttt{isinstance}
+\item
+  C. \texttt{try} et \texttt{except}
+\end{itemize}
+
+\hypertarget{question-17}{%
+\subsubsection{Question 17}\label{question-17}}
+
+Ajouter, avant les deux lignes déjà écrites, quelques lignes permettant
+de définir une classe \texttt{Voiture}, et que \texttt{v.color} renvoie
+\texttt{"bleu"}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+\OperatorTok{|}
+
+\NormalTok{v }\OperatorTok{=}\NormalTok{ Voiture()}
+\BuiltInTok{print}\NormalTok{(v.color)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-18}{%
+\subsubsection{Question 18}\label{question-18}}
+
+En python, ce que l'on note généralement \texttt{self} représente :
+
+\begin{itemize}
+\tightlist
+\item
+  A. Le constructeur de la classe
+\item
+  B. La conversion en format JSON de l'objet
+\item
+  C. L'instance de objet en train d'être modifié / étudié
+\end{itemize}
+
+\hypertarget{question-19}{%
+\subsubsection{Question 19}\label{question-19}}
+
+Pour tester et rendre explicite une hypothèse faite par un programme
+(par exemple tester si un nombre est positif ou si la longueur d'une
+liste est 3), j'utilise :
+
+\begin{itemize}
+\tightlist
+\item
+  A. \texttt{if}
+\item
+  B. \texttt{except}
+\item
+  C. \texttt{assert}
+\end{itemize}
+
+\hypertarget{question-20}{%
+\subsubsection{Question 20}\label{question-20}}
+
+Pour faciliter la compréhension de mon programme par mes collègues et
+mon futur moi, j'appelle mes fonctions et mes variables :
+
+\begin{itemize}
+\tightlist
+\item
+  A. Par des noms qui décrivent précisémment ce qu'elles font /
+  contiennent
+\item
+  B. Avec une seule lettre comme \texttt{a}, \texttt{b}, \texttt{f},
+  \texttt{x} \ldots{}
+\item
+  C. Obiwan Kénobi
+\item
+  D. La réponse D.
+\end{itemize}
+
+\end{document}

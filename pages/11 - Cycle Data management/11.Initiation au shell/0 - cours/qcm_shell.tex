@@ -1,0 +1,242 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdfborder={0 0 0},
+  breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\hypertarget{pruxe9nom-______________________}{%
+\subsubsection{Prénom :
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}\label{pruxe9nom-______________________}}
+
+\hypertarget{nom-______________________}{%
+\subsubsection{Nom :
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}\label{nom-______________________}}
+
+\hypertarget{initiation-au-shell-questionnaire}{%
+\section{Initiation au shell :
+questionnaire}\label{initiation-au-shell-questionnaire}}
+
+\hypertarget{entourez-la-bonne-ruxe9ponse.}{%
+\subsection{\texorpdfstring{Entourez \textbf{la} bonne
+réponse.}{Entourez la bonne réponse.}}\label{entourez-la-bonne-ruxe9ponse.}}
+
+\hypertarget{question-1}{%
+\subsubsection{Question 1}\label{question-1}}
+
+Une commande shell simple est composée \ldots{} :
+
+\begin{itemize}
+\tightlist
+\item
+  Du nom du programme, des éventuelles options pour préciser son
+  comportement et des arguments éventuels sur lequel s'applique le
+  programme.
+\item
+  Du nom d'une fonction suivie de parenthèses contenant les arguments
+  éventuels de la commande.
+\item
+  Du nom du programme, d'un chemin de fichier entre parenthèses et d'un
+  filtre éventuel.
+\end{itemize}
+
+\hypertarget{question-2}{%
+\subsubsection{Question 2}\label{question-2}}
+
+Un chemin absolu est:
+
+\begin{itemize}
+\tightlist
+\item
+  Une façon unique de désigner un fichier UNIX en décrivant comment y
+  accéder depuis la racine \texttt{/}.
+\item
+  Un ensemble de façon de désigner un fichier UNIX en combinant
+  \texttt{\textasciitilde{}}, \texttt{..} et des nom de fichiers.
+\item
+  Une façon unique de désigner un fichier UNIX à partir du dossier home
+  \texttt{\textasciitilde{}}.
+\end{itemize}
+
+\hypertarget{question-3}{%
+\subsubsection{Question 3}\label{question-3}}
+
+Que produit la commande \texttt{chmod\ 777\ fichier.txt}
+
+\begin{itemize}
+\tightlist
+\item
+  \ldots{}\texttt{fichier.txt} appartiendra à \texttt{root} ne sera donc
+  accessible qu'à lui.
+\item
+  \ldots{}\texttt{fichier.txt} deviendra un script qui pourra être
+  exécuté par un shell.
+\item
+  \ldots{}\texttt{fichier.txt} sera accessible par tous les utilisateurs
+  pour tout type d'usage.
+\end{itemize}
+
+\hypertarget{question-4}{%
+\subsubsection{Question 4}\label{question-4}}
+
+Quelles sont les trois types de permissions qui décrivent les usages
+possible d'un fichier UNIX ?
+
+\begin{itemize}
+\tightlist
+\item
+  Permission de copier, de télécharger et de modifier.
+\item
+  Permission de lire, d'écrire et d'exécuter.
+\item
+  Permission de transfert, de filtrage et de processus.
+\end{itemize}
+
+\hypertarget{question-5}{%
+\subsubsection{Question 5}\label{question-5}}
+
+Quelle est la commande très simple qui permet de connaître depuis un
+shell l'endroit où l'on se trouve dans le système de fichiers ?
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{question-6}{%
+\subsubsection{Question 6}\label{question-6}}
+
+Quelle ligne ajoute-t-on au début d'un fichier pour en faire un script
+shell ?
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\#!/bin/bash}
+\item
+  \texttt{!!/bin/ash}
+\item
+  \texttt{\#/bash}
+\end{itemize}
+
+\hypertarget{question-7}{%
+\subsubsection{Question 7}\label{question-7}}
+
+Comment rediriger la sortie d'une commande vers un fichier texte ?
+
+\begin{itemize}
+\tightlist
+\item
+  Utiliser \texttt{\textgreater{}\ monfichier.txt} ou
+  \texttt{\textgreater{}\textgreater{}\ monfichier.txt} après la
+  commande.
+\item
+  Utiliser \texttt{wc\ -l\ monfichier.txt} ou
+  \texttt{wc\ -e\ monfichier.txt} après la commande.
+\item
+  Utiliser \texttt{\&\&\ monfichier.txt} ou
+  \texttt{\textbar{}\textbar{}\ monfichier.txt} après la commande.
+\end{itemize}
+
+\hypertarget{question-8}{%
+\subsubsection{Question 8}\label{question-8}}
+
+Pour filtrer un fichier et ne garder que les lignes contenant un certain
+mot j'utilise:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{find}
+\item
+  \texttt{grep}
+\item
+  \texttt{wc}
+\end{itemize}
+
+\hypertarget{question-9}{%
+\subsubsection{Question 9}\label{question-9}}
+
+Comment déclare-t-on classiquement une variable d'environnement :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\$variable\ =\ valeur;}
+\item
+  \texttt{export\ VAR="valeur";}
+\item
+  \texttt{echo\ \$VAR="valeur";}
+\end{itemize}
+
+\hypertarget{question-10}{%
+\subsubsection{Question 10}\label{question-10}}
+
+Qu'affiche \texttt{ls\ -l} ?
+
+\begin{itemize}
+\tightlist
+\item
+  l'ensemble des utilisateurs du système avec leux shell et leur UID.
+\item
+  l'ensemble des liens symbolique dans le dossier et ses sous dossiers.
+\item
+  l'ensemble des fichiers du dossier courant avec leurs permissions,
+  possesseur et taille.
+\end{itemize}
+
+\end{document}
