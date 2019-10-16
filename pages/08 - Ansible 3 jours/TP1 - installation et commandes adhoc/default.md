@@ -274,7 +274,7 @@ Dans un inventaire ansible on commence toujours par créer les plus petits sous 
 
 Nous allons maintenant installer `nginx` sur les 4 machines. Il y a plusieurs façons d'installer des logiciels grâce à Ansible: en utilisant le gestionnaire de paquets de la distribution ou un gestionnaire spécifique comme `pip` ou `npm`. Chaque méthode dispose d'un module ansible spécifique.
 
-- Nous voudrions installer nginx avec la même commande sur les 4 machines or ubuntu utilise `apt` et centos utilise `yum`. Nous pouvons pour cela utiliser le module package qui permet d'uniformiser l'installation pour les cas simples.
+- Nous voudrions installer nginx avec la même commande sur les 4 machines or ubuntu utilise `apt` et centos utilise `yum`. Nous pouvons pour cela utiliser le module `package` qui permet d'uniformiser l'installation pour les cas simples.
   - Allez voir la documentation de ce module
   - utilisez `--become` pour devenir root avant d'exécuter la commande (cf élévation de privilège dans le cours2)
   - Utilisez le pour installer `nginx`
