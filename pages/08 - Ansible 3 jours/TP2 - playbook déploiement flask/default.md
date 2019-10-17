@@ -28,7 +28,7 @@ sudo lxc launch ubuntu_ansible app2
 $ sudo lxc list # pour récupérer l'adresse ip puis
 
 [all:vars]
-ansible_user = <user>
+ansible_user=<user>
 
 [appservers]
 app1 ansible_host=10.x.y.z
@@ -45,9 +45,9 @@ ansible all -m ping
 - Configurez git et initialisez un dépôt git dans ce dossier.
 
 ```
-git config --global user.name=<votre nom>
-git config --global user.email=<votre email>
-git init
+git config --global user.name "<votre nom>"
+git config --global user.email "<votre email>"
+git init   # à executer à la racine du projet
 ```
 
 - Ajoutez un fichier `.gitignore` avec à l'intérieur:
