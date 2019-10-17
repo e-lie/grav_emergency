@@ -170,6 +170,15 @@ Notre application sera executée en tant qu'utilisateur flask pour des raisons d
 
 - Créez une tache `file` qui change le propriétaire du dossier de façon récursive.
 
+```yml
+    - name: change permissions of app directory
+      file:
+        path: /home/flask/hello
+        state: directory
+        owner: "flask"
+        recurse: true
+```
+
 ## Déployer configurer le service qui fera tourner l'application
 
 Notre application doit tourner comme c'est souvent le cas en tant que service (systemd). Pour cela nous devons créer un fichier service adapté `hello.service` dans le le dossier `/etc/systemd/system/`.
