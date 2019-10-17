@@ -86,9 +86,39 @@ Le code (très minimal) de cette application se trouve sur github à l'adresse: 
 
 - Avec le module `apt` installez les applications: `python3-dev`, `python3-pip`, `python3-virtualenv`, `virtualenv`, `nginx`, `git`. Donnez à cette tache le nom: `ensure basic dependencies are present`. ajoutez pour cela la directive `become: yes` au début du playbook.
 
+```yml
+    - name: ensure basic apps present
+      apt:
+        name:
+          - python3-dev
+          - python3-pip
+          - python3-virtualenv
+          - virtualenv
+          - nginx
+          - git
+        state: present
+```
+
 - Ajoutez une tâche `systemd` pour s'assurer que le service `nginx` est démarré.
 
+```yml
+    - name: ensure nginx started
+      systemd:
+        name: nginx
+        state: started
+```
+
 - Ajoutez une tache pour créer un utilisateur `flask` et l'ajouter au groupe `www-data`. Utilisez bien le paramètre `append: yes` pour éviter de supprimer des groupes à l'utilisateur.
+
+```yml
+    - name: "add the user flask"
+      user:
+        name: "flask"
+        state: present
+        append: yes # important pour ne pas supprimer les groupes d'un utilisateur existant
+        groups:
+        - "www-data"
+```
 
 - Relancez bien votre playbook à chaque tache : comme Ansible est idempotent il n'est pas grave en situation de développement d'interrompre l'exécution du playbook et de reprendre l'exécution après un échec.
 
@@ -101,6 +131,16 @@ Le code (très minimal) de cette application se trouve sur github à l'adresse: 
 - Nous allons utiliser la deuxième option (`git`) qui est plus cohérente pour le déploiement et la gestion des versions logicielles. Allez voir la documentation comment utiliser ce module.
   
 - Utilisez le pour télécharger le code source de l'application (branche `master`) dans le dossier `/home/flask/hello` mais en désactivant la mise à jour (au cas ou le code change).
+
+```yml
+    - name: git get app files
+      git:
+        repo: "https://github.com/e-lie/flask_hello_ansible.git"
+        dest: /home/flask/hello
+        version: "master"
+        clone: yes
+        update: no
+```
 
 - Lancez votre playbook et allez vérifier sur une machine en ssh que le code est bien téléchargé.
 
@@ -115,6 +155,14 @@ Le langage python a son propre gestionnaire de dépendances `pip` qui permet d'i
 - Nous voulons installer ces dépendance en version python3 avec l'argument `virtualenv_python: python3`.
 
 Avec ces informations et la documentation du module `pip` installez les dépendances de l'application.
+
+```yml
+    - name: install modules in a virtualenv
+      pip:
+        requirements: /home/flask/hello/requirements.txt
+        virtualenv: /home/flask/hello/venv
+        virtualenv_python: python3
+```
 
 ## Changer les permission sur le dossier application
 
