@@ -22,13 +22,26 @@ Bonne pratique importante : changez le port de connexion ssh pour un port atypiq
 
 Il faut utiliser comme nous avons fait dans les TP des logins ssh avec les utilisateurs humain réels des machines et des clés ssh. C'est à dire le même modèle d'authentification que l'administration traditionnelle.
 
+## Les autres modes de connexion
+
+Le mode de connexion par défaut de Ansible est SSH cependant il est possible d'utiliser de nombreux autres modes de connexion spécifiques :
+
+- La liste des plugins de se trouve ici [https://docs.ansible.com/ansible/latest/plugins/connection.html#plugin-list]
+
+- Une autre connexion courante est `ansible_connection=local` qui permet de configurer la machine locale sans avoir besoin d'installer un serveur ssh.
+
+- Les questions de sécurités de la connexion se posent bien sur différemment selon le mode de connexion utilisés (port, authentification, etc.)
+
+- Pour débugger les connexions et diagnotiquer leur sécurité on peut afficher les détails de chaque connection ansible avec le mode de verbosité maximal (network) en utilisant le paramètre `-vvvv`.
+
+
 ## Variables et secrets
 
-Principal risque de sécurité lié à ansible comme avec Docker et l'IaC en général consiste à laisser trainer des secrets (mot de passe, api token, secret de chiffrement / migration etc.) dans le code ou sur les serveurs (moins problématique).
+Principal risque de sécurité lié à ansible comme avec Docker et l'IaC en général consiste à laisser trainer des secrets (mot de passe, identités de clients, api token, secret de chiffrement / migration etc.) dans le code ou sur les serveurs (moins problématique).
 
-## Désactiver le logging des informations sensible
+## Désactiver le logging des informations sensibles
 
-Anisble propose une directive `no_log: yes` qui permet de désactivé l'affichage des valeurs d'entrée et de sortie d'une tâche.
+Ansible propose une directive `no_log: yes` qui permet de désactiver l'affichage des valeurs d'entrée et de sortie d'une tâche.
 
 Il est ainsi possible de limiter la prolifération de données sensibles.
 

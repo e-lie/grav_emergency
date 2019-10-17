@@ -1,5 +1,5 @@
 ---
-title: 'Cours3 - Organiser un projet ansible et modulariser avec les roles'
+title: 'Cours 3 - Organiser un projet ansible et modulariser avec les roles'
 visible: false
 ---
 

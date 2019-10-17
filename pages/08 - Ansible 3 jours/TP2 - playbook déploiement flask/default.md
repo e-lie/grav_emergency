@@ -1,5 +1,5 @@
 ---
-title: "TP2 créer un playbook de déploiement d'application flask" 
+title: "TP2 - Créer un playbook de déploiement d'application flask" 
 visible: true
 ---
 
