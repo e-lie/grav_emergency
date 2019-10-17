@@ -3,7 +3,6 @@ title: 'Cours 4 - Sécurité et Cloud'
 visible: false
 ---
 
-
 # Sécurité
 
 La sécurité linux n'est pas résolue magiquement par Ansible. Tous le travail de réflexion et de sécurisation reste identique mais peut comme le reste être mieux controllé.
@@ -134,5 +133,15 @@ On peut ensuite appeler `ansible-playbook` en utilisant ce programme plutôt qu'
 
 Ansible peut également s'interfacer avec Terraform graces à différents plugins (CF TP4)
 
-<!-- # Gérer les droits et la planification des opérations avec AWX -->
+<!-- ## Ansible comme provisionneur ou Terraform
+
+On peut utiliser Ansible pour provisionner des infrastructures grâce à certains modules
+
+Exemple avec AWS
+
+Terraform est un outil
+
+-->
+
+<!-- ## Gérer les droits et la planification des opérations avec AWX -->
 

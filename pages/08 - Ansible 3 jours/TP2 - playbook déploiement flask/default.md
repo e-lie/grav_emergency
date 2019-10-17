@@ -7,11 +7,49 @@ visible: true
 
 - Créez un nouveau dossier `tp2_flask_deployment`.
 - Créez le fichier `ansible.cfg` comme précédemment.
+
+```ini
+[defaults]
+inventory = ./inventory.cfg
+roles_path = ./roles
+host_key_checking = false
+```
+
 - Créez deux machines ubuntu `app1` et `app2`.
+
+```
+sudo lxc launch ubuntu_ansible app1
+sudo lxc launch ubuntu_ansible app2
+```
+
 - Créez l'inventaire statique `inventory.cfg`.
+
+```
+$ sudo lxc list # pour récupérer l'adresse ip puis
+
+[all:vars]
+ansible_user = <user>
+
+[appservers]
+app1 ansible_host=10.x.y.z
+app2 ansible_host=10.x.y.z
+```
+
 - Ajoutez à l'intérieur les deux machines dans un groupe `appservers`.
 - Pinguez les machines.
-- Initialisez un dépôt git dans ce dossier.
+
+```
+ansible all -m ping
+```
+
+- Configurez git et initialisez un dépôt git dans ce dossier.
+
+```
+git config --global user.name=<votre nom>
+git config --global user.email=<votre email>
+git init
+```
+
 - Ajoutez un fichier `.gitignore` avec à l'intérieur:
 
 ```bash
@@ -19,6 +57,11 @@ visible: true
 ```
 
 - Committez vos modifications avec git.
+
+```
+git add -A
+git commit -m "démarrage tp2"
+```
 
 ## Premier playbook : installer les dépendances
 

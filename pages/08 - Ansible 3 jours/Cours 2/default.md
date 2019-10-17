@@ -1,5 +1,5 @@
 ---
-title: 'Cours 2 - Les playbooks Ansible'
+title: '2 - Les playbooks Ansible'
 visible: true
 ---
 
