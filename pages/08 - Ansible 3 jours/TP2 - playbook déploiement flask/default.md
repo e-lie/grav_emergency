@@ -86,7 +86,7 @@ Le code (très minimal) de cette application se trouve sur github à l'adresse: 
 
 - Avec le module `apt` installez les applications: `python3-dev`, `python3-pip`, `python3-virtualenv`, `virtualenv`, `nginx`, `git`. Donnez à cette tache le nom: `ensure basic dependencies are present`. ajoutez pour cela la directive `become: yes` au début du playbook.
 
-- Ajoutez une tâche `systemd` pour s'assurer que le service est démarré.
+- Ajoutez une tâche `systemd` pour s'assurer que le service `nginx` est démarré.
 
 - Ajoutez une tache pour créer un utilisateur `flask` et l'ajouter au groupe `www-data`. Utilisez bien le paramètre `append: yes` pour éviter de supprimer des groupes à l'utilisateur.
 
