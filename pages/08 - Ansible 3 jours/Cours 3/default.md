@@ -1,6 +1,6 @@
 ---
 title: 'Cours 3 - Organiser un projet ansible et modulariser avec les roles'
-visible: false
+visible: true
 ---
 
 ## Organisation d'un dépot Ansible

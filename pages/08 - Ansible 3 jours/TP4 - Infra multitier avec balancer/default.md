@@ -1,6 +1,6 @@
 ---
 title: "TP4 Loadbalancer, AWX et Cloud" 
-visible: false
+visible: true
 ---
 
 ## Prérequis : Digitalocean token et clé SSH
