@@ -368,6 +368,8 @@ app:
   version: master
 ``` -->
 
+Correction de cette sous partie disponible dans le dépôt: [https://github.com/e-lie/ansible_tp2_before_handlers_correction](https://github.com/e-lie/ansible_tp2_before_handlers_correction).
+
 ## Ajouter un handler pour nginx et le service
 
 Pour le moment dans notre playbook, les deux tâches de redémarrage de service sont en mode `restarted` c'est à dire qu'elles redémarrent le service à chaque exécution (résultat: `changed`) et ne sont donc pas idempotentes. En imaginant qu'on lance ce playbook toutes les 15 minutes dans un cron pour stabiliser la configuration, on aurait un redémarrage de nginx 4 fois par heure sans raison.
