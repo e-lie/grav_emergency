@@ -117,7 +117,7 @@ Le code (très minimal) de cette application se trouve sur github à l'adresse: 
         state: present
         append: yes # important pour ne pas supprimer les groupes d'un utilisateur existant
         groups:
-        - "www-data"
+          - "www-data"
 ```
 
 - Relancez bien votre playbook à chaque tache : comme Ansible est idempotent il n'est pas grave en situation de développement d'interrompre l'exécution du playbook et de reprendre l'exécution après un échec.
@@ -238,7 +238,7 @@ server {
 - Visitez l'application dans un navigateur et debugger le cas échéant.
 
 
-<!-- ### Correction
+### Correction
 
 `flaskhello_deploy.yml`
 
@@ -329,7 +329,7 @@ server {
         name: "nginx"
         state: restarted
         enabled: yes
-``` -->
+```
 
 
 # Améliorer notre playbook avec des variables.
