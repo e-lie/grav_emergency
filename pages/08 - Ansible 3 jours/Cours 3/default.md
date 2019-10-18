@@ -61,8 +61,8 @@ Plusieurs remarques:
   - Idéalement contient un minimum de tâches et plutôt des roles (ie des tâches rangées dans une sorte de module)
 - Pour limiter la taille de l'inventaire principal on range les variables communes dans des dossiers `group_vars` et `host_vars`. On met à l'intérieur un fichier `<nom_du_groupe>.yml` qui contient un dictionnaire de variables. 
 - On cherche à modulariser au maximum la configuration dans des roles c'est à dire des modules rendus génériques et specifique à un objectif de configuration.
-- Ce modèle d'organisation correspond plutôt à la configuration d'une infrastructure (playbooks à exécuter régulièrement) qu'à l'usage de playbooks ponctuels comme pour le déploiement. Mais, bien sur, on peut ajouter un dossier `playbooks` ou `operations` pour certaines opérations ponctuelles. (cf cours 4)
-- Si les modules de Ansible complétés par les commandes bash ne suffisent pas on peut développer ses propre modules ansible.
+- Ce modèle d'organisation correspond plutôt à la **configuration** de base d'une infrastructure (playbooks à exécuter régulièrement) qu'à l'usage de playbooks ponctuels comme pour le déploiement. Mais, bien sur, on peut ajouter un dossier `playbooks` ou `operations` pour certaines opérations ponctuelles. (cf cours 4)
+- Si les modules de Ansible (complétés par les commandes bash) ne suffisent pas on peut développer ses propre modules ansible.
   - Il s'agit de programmes python plus ou moins complexes
   - On les range alors dans le dossier `library` du projet ou d'un role et on le précise éventuellement dans `ansible.cfg`.
 - Observons le core `Common` :  il est utilisé ici pour rassembler les taches de base des communes à toutes les machines. Par exemple s'assurer que les clés ssh de l'équipe sont présentes, que les dépots spécifiques sont présents etc. 
@@ -128,11 +128,11 @@ On constate que les noms des sous dossiers correspondent souvent à des sections
   - compatibilité
   - version
   - dépendances à d'autres roles.
-- Le dossier `files` contients les fichiers qui ne sont pas des templates (pour les module `copy` ou `sync`, `script` etc).
+- Le dossier `files` contient les fichiers qui ne sont pas des templates (pour les module `copy` ou `sync`, `script` etc).
 
 ### Ansible Galaxy
 
-C'est le store de role officiel d'Ansible : [https://galaxy.ansible.com/](https://galaxy.ansible.com/)
+C'est le store de roles officiel d'Ansible : [https://galaxy.ansible.com/](https://galaxy.ansible.com/)
 
 C'est également le nom d'une commande `ansible-galaxy` qui permet d'installer des roles et leurs dépendances depuis internet. Un sorte de gestionnaire de paquet pour ansible.
 
@@ -146,10 +146,25 @@ Il existe des roles pour installer un peu n'importe quelle application serveur c
 
 ### Dépendances d'un playbook et dépendance d'un role
 
-Si un playbook utilise un role on parle de dépendance.
+#### Si un playbook utilise un role on parle de dépendance (dans un premier sens).
 
 Conventionnellement on utilise un fichier `requirements.yml` situé dans `roles` pour décrire la liste des roles nécessaires à un projet.
 
+```yml
+- src: geerlingguy.repo-epel
+- src: geerlingguy.haproxy
+- src: geerlingguy.docke
+# from GitHub, overriding the name and specifying a specific tag
+- src: https://github.com/bennojoy/nginx
+  version: master
+  name: nginx_role
+```
+
+- Ensuite pour les installer on lance: `ansible-galaxy install -r roles/requirements.yml -p roles`.
+
+
+#### Dépendance entre roles
+ à chaque fois avec un playbook on peut laisser la cascade de dépendances mettre nos serveurs dans un état complexe désiré
 Si un role dépend d'autres roles, les dépendances sont décrite dans le fichier `meta/main.yml` comme suit
 
 ```yml
@@ -167,4 +182,4 @@ dependencies:
       other_parameter: 12
 ``` 
 
-Les dépendances sont exécutées automatiquement avant l'execution du role en question.
+Les dépendances sont exécutées automatiquement avant l'execution du role en question. Ce méchanisme permet de créer des automatisation bien organisées avec une forme de composition de roles simple pour créer des roles plus complexe : plutôt que de lancer les rôles à chaque fois avec un playbook on peut laisser la cascade de dépendances mettre nos serveurs dans un état complexe désiré.

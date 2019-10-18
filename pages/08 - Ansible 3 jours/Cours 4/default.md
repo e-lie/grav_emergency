@@ -33,7 +33,6 @@ Le mode de connexion par défaut de Ansible est SSH cependant il est possible d'
 
 - Pour débugger les connexions et diagnotiquer leur sécurité on peut afficher les détails de chaque connection ansible avec le mode de verbosité maximal (network) en utilisant le paramètre `-vvvv`.
 
-
 ## Variables et secrets
 
 Principal risque de sécurité lié à ansible comme avec Docker et l'IaC en général consiste à laisser trainer des secrets (mot de passe, identités de clients, api token, secret de chiffrement / migration etc.) dans le code ou sur les serveurs (moins problématique).
@@ -60,7 +59,7 @@ Pour déchiffrer il est ensuite nécessaire d'ajouter l'option `--ask-vault-pass
 
 Il existe également un mode pour gérer plusieurs mots de passe associés à des identifiants.
 
-# Ansible dans le cloud
+## Ansible dans le cloud
 
 L'automatisation Ansible fait d'autant plus sens dans un environnement d'infrastructures dynamique:
 
@@ -73,7 +72,7 @@ Il existe de nombreuses solutions pour intégrer Ansible avec les principaux pro
 
 Les inventaires que nous avons utilisés jusqu'ici implique d'affecter à la main les adresses IP des différents noeuds de notre infrastructure. Cela devient vite ingérable.
 
-La solution ansible pour le pas gérer les IP et les groupes à la main est appelée `inventaire dynamique`. Un inventaire dynamique est simplement un programme qui renvoie un JSON respectant le format d'inventaire JSON ansible, généralement en contactant l'api du cloud provider.
+La solution ansible pour le pas gérer les IP et les groupes à la main est appelée `inventaire dynamique` ou `inventory plugin`. Un inventaire dynamique est simplement un programme qui renvoie un JSON respectant le format d'inventaire JSON ansible, généralement en contactant l'api du cloud provider ou une autre source.
 
 ```
 $ ./inventory_terraform.py
@@ -131,17 +130,29 @@ $ ./inventory_terraform.py
 
 On peut ensuite appeler `ansible-playbook` en utilisant ce programme plutôt qu'un fichier statique d'inventaire: `ansible-playbook -i inventory_terraform.py configuration.yml`
 
-Ansible peut également s'interfacer avec Terraform graces à différents plugins (CF TP4)
 
-<!-- ## Ansible comme provisionneur ou Terraform
+## Étendre et intégrer Ansible
 
-On peut utiliser Ansible pour provisionner des infrastructures grâce à certains modules
 
-Exemple avec AWS
+Ansible peut également s'interfacer avec différentes source
 
-Terraform est un outil
 
--->
+On peut explorer plus facilement la hiérarchie d'un inventaire statique ou dynamique avec la commande:
 
-<!-- ## Gérer les droits et la planification des opérations avec AWX -->
+```
+ansible-inventory --inventory <inventory> --graph
+```
 
+### Intégration Ansible et AWS
+
+Utiliser le plugin d'inventaire AWS et les modules ec2
+
+### Intégration Ansible Nagios
+
+Laisser le contrôle à Nagios et utiliser un plugin pour que Nagios puisse lancer des plays Ansible ()
+
+### Intégration Ansible avec Openstack
+
+Utiliser un `inventory plugin` basé sur le composant `Nova` d'`OpenStack` c'est à dire la base de données partagé du cloud
+
+<!-- ## Orchestration avec Ansible -->
