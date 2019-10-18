@@ -11,6 +11,9 @@ visible: true
 
 - Récupérez sur git une paire clé ssh: [https://github.com/e-lie/id_ssh_shared.git](https://github.com/e-lie/id_ssh_shared.git). Utilisez "clone or download" > "Download as ZIP". Puis décompressez l'archive.
 
+token : `a1eb684cf5cad6bf26bbca53b4d72a60c99305ee4465f9259b548a06ddc4475a`
+ssh fingerprint: `05:f7:18:15:4a:77:3c:4c:86:70:85:aa:cb:18:b7:68`
+
 - mettez la paire de clé `id_ssh_shared` et `id_ssh_shared.pub` dans le dossier `~/.ssh/`. La passphrase de cette clé est `trucmuch42`.
 - Rétablissez les droits `600` sur la clé privée : `chmod 600 ~/.ssh/id_ssh_shared`.
 - faites `ssh-add ~/.ssh/id_ssh_shared` pour vérifier que vous pouvez déverrouiller deux clés (l'ancienne avec votre passphrase et la nouvelle paire que vous venez d'ajouter)
@@ -32,6 +35,7 @@ cp /tmp
 wget https://releases.hashicorp.com/terraform/0.12.10/terraform_0.12.10_linux_amd64.zip
 sudo unzip ./terraform_0.12.10_linux_amd64.zip -d /usr/local/bin/
 ```
+
 - Testez l'installation avec `terraform --version`
 
 Pour pouvoir se connecter à nos VPS, ansible doit connaître les adresses IP et le mode de connexion ssh de chaque VPS. Il a donc besoin d'un inventaire.
