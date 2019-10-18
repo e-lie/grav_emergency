@@ -175,7 +175,7 @@ Nous aimerions maintenant créer un playbook `upgrade_apps.yml` qui contrairemen
 
 # Correction avec bonus
 
-Le dépot de correction se trouve à l'adresse: [https://github.com/e-lie/ansible_tp3_et_4_correction](https://github.com/e-lie/ansible_tp3_et_4_correction)
+Le dépot de correction se trouve à l'adresse: [https://github.com/e-lie/ansible_tp3_correction](https://github.com/e-lie/ansible_tp3_correction)
 
 Il contient également des éléments du TP4 (loadbalancer, playbook de déploiement, awx)
 
