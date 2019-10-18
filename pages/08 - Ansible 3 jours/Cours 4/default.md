@@ -1,6 +1,6 @@
 ---
 title: 'Cours 4 - Sécurité et Cloud'
-visible: false
+visible: true
 ---
 
 # Sécurité
@@ -188,7 +188,10 @@ ansible-inventory --inventory <inventory> --graph
 
 ### Intégration Ansible et AWS
 
-Utiliser le plugin d'inventaire AWS et les modules comme  ec2
+Utiliser le plugin d'inventaire AWS et les modules adaptés.
+
+Par exemple:
+- [https://docs.ansible.com/ansible/latest/modules/ec2_module.html](https://docs.ansible.com/ansible/latest/modules/ec2_module.html).
 
 ### Intégration Ansible Nagios
 
