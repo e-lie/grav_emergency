@@ -9,10 +9,11 @@ visible: true
     - un token d'API digitalocean fourni pour la formation.
     - une fingerprint digitalocean de clé ssh.
 
-- Récupérez sur git une paire clé ssh: [https://github.com/e-lie/id_ssh_shared.git](https://github.com/e-lie/id_ssh_shared.git)
+- Récupérez sur git une paire clé ssh: [https://github.com/e-lie/id_ssh_shared.git](https://github.com/e-lie/id_ssh_shared.git). Utilisez "clone or download" > "Download as ZIP". Puis décompressez l'archive.
 
 - mettez la paire de clé `id_ssh_shared` et `id_ssh_shared.pub` dans le dossier `~/.ssh/`. La passphrase de cette clé est `trucmuch42`.
-- faites `ssh-add` pour vérifier que vous pouvez déverrouiller deux clés (l'ancienne avec votre passphrase et la nouvelle paire que vous venez d'ajouter)
+- Rétablissez les droits `600` sur la clé privée : `chmod 600 ~/.ssh/id_ssh_shared`.
+- faites `ssh-add ~/.ssh/id_ssh_shared` pour vérifier que vous pouvez déverrouiller deux clés (l'ancienne avec votre passphrase et la nouvelle paire que vous venez d'ajouter)
 
 <!-- - Si vous utilisez votre propre compte, vous aurez besoin d'un token personnel. Pour en crée allez dans API > Personal access tokens et créez un nouveau token. Copiez bien ce token et collez le dans un fichier par exemple `~/Bureau/compte_digitalocean.txt`. (important détruisez ce token à la fin du TP par sécurité).
 
