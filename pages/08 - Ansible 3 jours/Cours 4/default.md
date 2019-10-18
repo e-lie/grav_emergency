@@ -134,8 +134,32 @@ On peut ensuite appeler `ansible-playbook` en utilisant ce programme plutôt qu'
 ## Étendre et intégrer Ansible
 
 
-Ansible peut également s'interfacer avec différentes source
+Bonne pratique : Normalement l'information de configuration Ansible doit provenir au maximum de l'inventaire. Ceci est conforme à l'orientation plutôt déclarative d'Ansible et à son exécution descendante (master -> nodes). La méthode à privilégier pour intégrer Ansible à des sources d'information existantes est donc de développer un **plugin d'inventaire**.
 
+[https://docs.ansible.com/ansible/latest/plugins/inventory.html](https://docs.ansible.com/ansible/latest/plugins/inventory.html)
+
+On peut cependant alimenter le dictionnaire de variable Ansible au fur et à mesure de l'exécution, en particulier grâce à la directive `register` et au module `set_fact`.
+
+Exemple:
+
+```yml
+# this is just to avoid a call to |default on each iteration
+- set_fact:
+    postconf_d: {}
+
+- name: 'get postfix default configuration'
+  command: 'postconf -d'
+  register: postconf_result
+  changed_when: false
+
+# the answer of the command give a list of lines such as:
+# "key = value" or "key =" when the value is null
+- name: 'set postfix default configuration as fact'
+  set_fact:
+    postconf_d: >
+      {{ postconf_d | combine(dict([ item.partition('=')[::2]map'trim') ])) }}
+  loop: postconf_result.stdout_lines
+```
 
 On peut explorer plus facilement la hiérarchie d'un inventaire statique ou dynamique avec la commande:
 
@@ -143,16 +167,34 @@ On peut explorer plus facilement la hiérarchie d'un inventaire statique ou dyna
 ansible-inventory --inventory <inventory> --graph
 ```
 
+### Liste des type de plugins possibles pour étendre Ansible
+
+[https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html](https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html)
+
+- Ansible modules
+- Inventory plugins
+- Connection plugins
+
+#### Secondaire
+
+- Action plugins
+- Cache plugins
+- Callback plugins
+- Filter plugins
+- Lookup plugins
+- Test plugins
+- Vars plugins
+
+
 ### Intégration Ansible et AWS
 
-Utiliser le plugin d'inventaire AWS et les modules ec2
+Utiliser le plugin d'inventaire AWS et les modules comme  ec2
 
 ### Intégration Ansible Nagios
 
-Laisser le contrôle à Nagios et utiliser un plugin pour que Nagios puisse lancer des plays Ansible ()
+Laisser le contrôle à Nagios et utiliser un plugin pour que Nagios puisse lancer des plays Ansible.
 
 ### Intégration Ansible avec Openstack
 
-Utiliser un `inventory plugin` basé sur le composant `Nova` d'`OpenStack` c'est à dire la base de données partagé du cloud
+Utiliser un `inventory plugin` basé sur le composant `Nova` d'`OpenStack` c'est à dire la base de données partagé du cloud Openstack.
 
-<!-- ## Orchestration avec Ansible -->
