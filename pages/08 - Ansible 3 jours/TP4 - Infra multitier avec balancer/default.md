@@ -28,7 +28,7 @@ Terraform n'est pas disponible sous forme de dépôt ubuntu/debian. Pour l'insta
 
 ```bash
 cp /tmp
-wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.10_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/0.12.10/terraform_0.12.10_linux_amd64.zip
 sudo unzip ./terraform_0.12.10_linux_amd64.zip -d /usr/local/bin/
 ```
 - Testez l'installation avec `terraform --version`
